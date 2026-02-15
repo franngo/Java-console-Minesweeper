@@ -6,6 +6,11 @@ public class Cell {
     private boolean hasBomb;
     private CellState state;
 
+    public Cell(boolean hasBomb) {
+        this.hasBomb = hasBomb;
+        this.state = new CellStateUnknown();
+    }
+
     public boolean hasBomb() {
         return this.hasBomb;
     }

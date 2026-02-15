@@ -6,7 +6,22 @@ import java.util.List;
 public class Board {
     final private int rows = 8;
     final private int columns = 10;
-    private Cell[][] cells = new Cell[rows][columns]; //8 rows and 10 columns board
+    private Cell[][] cells; //must have 10 cells with a bomb
+
+    public Board() {
+        cells = new Cell[rows][columns]; //8 rows and 10 columns board
+
+        //initialize some corner cells
+
+        for (Cell[] row : cells) {
+            for (Cell cell : row) {
+                if(cell!=null) { //if not one of the already initialized
+                    cell = new Cell(false);
+                }
+            }
+        }
+
+    }
 
     public Cell get(int row, int column) {
         return cells[row][column];
