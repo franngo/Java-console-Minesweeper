@@ -11,15 +11,30 @@ public class Board {
     public Board() {
         cells = new Cell[rows][columns]; //8 rows and 10 columns board
 
-        //initialize some corner cells
+        //we initialize some corner cells
+        cells[0][0] = new Cell(false);
+        cells[0][1] = new Cell(false);
+        cells[0][2] = new Cell(false);
+        cells[1][0] = new Cell(false);
+        cells[1][1] = new Cell(false);
+        cells[2][0] = new Cell(false);
+        cells[2][1] = new Cell(true);
 
         for (Cell[] row : cells) {
             for (Cell cell : row) {
                 if(cell!=null) { //if not one of the already initialized
-                    cell = new Cell(false);
+                    cell = new Cell(false); //must randomize 10 cells with bomb
                 }
             }
         }
+
+        //we clear the initial cells
+        this.clear(0, 0);
+        this.clear(0, 1);
+        this.clear(0, 2);
+        this.clear(1, 0);
+        this.clear(1, 1);
+        this.clear(2, 0);
 
     }
 
@@ -31,8 +46,16 @@ public class Board {
         this.get(row, column).mark();
     }
 
+    public void undoTheMark(int row, int column) {
+        this.get(row, column).undoTheMark();
+    }
+
     public void clear(int row, int column) {
-        //first of all, we get the surrounding cells
+        /*
+        First of all, we get the surrounding cells, which will be needed to show the amount of bombs surrounding
+        the cleared cell, in case this one is actually cleared.
+         */
+
         List<Cell> cs = new ArrayList<Cell>();
 
         for(int r = -1; r<2; r++) {

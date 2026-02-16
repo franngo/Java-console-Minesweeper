@@ -1,7 +1,17 @@
 package board;
 
+import java.util.List;
+
 public class CellStateMarked implements CellState {
-    public void clear(Cell cell) {
+    public void mark(Cell cell) {
+
+    }
+
+    public void undoTheMark(Cell cell) {
+
+    }
+
+    public void clear(Cell cell, List<Cell> surrCells) {
 
     }
 }
