@@ -12,6 +12,6 @@ public class CellStateClear implements CellState {
     }
 
     public void clear(Cell cell, List<Cell> surrCells) {
-        //does nothing because it's already clear
+        //show "This cell is already clear" to the player
     }
 }

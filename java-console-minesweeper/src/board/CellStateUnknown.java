@@ -11,17 +11,17 @@ public class CellStateUnknown implements CellState {
 
     }
 
+    /*
+    This state tries to clean the cell, which can result in success or explosion.
+    If it actually cleans the cell, it's gonna count the number of surrounding cells with a bomb for the new
+    cleaned cell's symbol.
+     */
     public void clear(Cell cell, List<Cell> surrCells) {
         cell.validateThereIsNoBomb();
         int bs = this.countSurroundingBombs(surrCells);
-        //cambiarle el estado a Clear y darle como nuevo símbolo el int bs
-        /*
-        Clear dice "already clear", Marked dice "this cell is marked. you must undo the mark to clear it", y
-        Unknown efectivamente trata de limpiar la celda, lo cual puede resultar en explosión o éxito.
-        Si efectivamente la va a limpiar, va a contar el número de celdas circundantes con bomba para el nuevo
-        símbolo de la celda limpiada.
-        */
-
+        cell.setState(new CellStateClear());
+        char cbs = (char) (bs + '0');
+        cell.setSymbol(cbs);
     }
 
     private int countSurroundingBombs(List<Cell> cells) {

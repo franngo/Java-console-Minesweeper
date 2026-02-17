@@ -12,6 +12,6 @@ public class CellStateMarked implements CellState {
     }
 
     public void clear(Cell cell, List<Cell> surrCells) {
-
+        //show "This cell is marked. you must undo the mark to clear it" to the player
     }
 }
