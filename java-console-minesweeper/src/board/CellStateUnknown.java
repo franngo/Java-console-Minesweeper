@@ -4,11 +4,12 @@ import java.util.List;
 
 public class CellStateUnknown implements CellState {
     public void mark(Cell cell) {
-
+        cell.setState(new CellStateMarked());
+        cell.setSymbol('F');
     }
 
     public void undoTheMark(Cell cell) {
-
+        //show "This cell is not marked. you can't undo a mark if there's none" to the player
     }
 
     /*
