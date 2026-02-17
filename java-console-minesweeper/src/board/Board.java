@@ -7,6 +7,7 @@ public class Board {
     final private int rows = 8;
     final private int columns = 10;
     private Cell[][] cells; //must have 10 cells with a bomb
+    private boolean isActive = true;
 
     public Board() {
         cells = new Cell[rows][columns]; //8 rows and 10 columns board
@@ -38,6 +39,14 @@ public class Board {
 
     }
 
+    public boolean getIsActive() {
+        return this.isActive;
+    }
+
+    public void finishGame() {
+        this.isActive = false;
+    }
+
     public Cell get(int row, int column) {
         return cells[row][column];
     }
@@ -66,6 +75,13 @@ public class Board {
             }
         }
 
-        this.get(row, column).clear(cs);
+        this.get(row, column).clear(this, cs);
+    }
+
+    public void checkVictory() {
+        if(true) {
+            System.out.println("Congrats! You won the game.");
+            this.finishGame();
+        }
     }
 }

@@ -1,5 +1,8 @@
 package board;
 
+import CellState.CellState;
+import CellState.CellStateUnknown;
+
 import java.util.List;
 
 public class Cell {
@@ -33,14 +36,8 @@ public class Cell {
         state.undoTheMark(this);
     }
 
-    public void clear(List<Cell> cells) {
-        state.clear(this, cells);
-    }
-
-    void validateThereIsNoBomb() {
-        if(this.hasBomb()) {
-            //show "game over" to the player
-        }
+    public void clear(Board board, List<Cell> cells) {
+        state.clear(board, this, cells);
     }
 
 }

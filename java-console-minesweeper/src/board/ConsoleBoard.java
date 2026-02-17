@@ -8,6 +8,11 @@ public class ConsoleBoard {
     }
 
     public void startGame() {
-        System.out.println("a");
+        while(board.getIsActive()) {
+            //mostrar en pantalla el tablero
+            //recibir input
+            //delegar mensaje al Board según la acción del input
+            //si se cambia isActive del Board, termina el loop y termina la partida
+        }
     }
 }

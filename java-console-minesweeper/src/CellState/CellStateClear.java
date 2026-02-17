@@ -1,4 +1,7 @@
-package board;
+package CellState;
+
+import board.Board;
+import board.Cell;
 
 import java.util.List;
 
@@ -11,7 +14,7 @@ public class CellStateClear implements CellState {
         //show "This cell is already clear" to the player
     }
 
-    public void clear(Cell cell, List<Cell> surrCells) {
+    public void clear(Board board, Cell cell, List<Cell> surrCells) {
         //show "This cell is already clear" to the player
     }
 }
