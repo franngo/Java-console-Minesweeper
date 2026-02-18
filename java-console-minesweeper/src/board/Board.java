@@ -22,10 +22,20 @@ public class Board {
         cells[2][0] = new Cell(false);
         cells[2][1] = new Cell(true);
 
+        /*
         for (Cell[] row : cells) {
             for (Cell cell : row) {
-                if(cell!=null) { //if not one of the already initialized
+                if(cell==null) {
                     cell = new Cell(false); //must randomize 10 cells with bomb
+                }
+            }
+        }
+        */
+
+        for(int r=0; r<8; r++) {
+            for(int c=0; c<10; c++) {
+                if(this.get(r,c)==null) { //if not one of the already initialized
+                    cells[r][c] = new Cell(false); //must randomize 10 cells with bomb
                 }
             }
         }
@@ -89,7 +99,7 @@ public class Board {
     }
 
     public void checkVictory() {
-        if(true) { //la condición es si ya están limpias todas aquellas celdas que no tienen bomba
+        if(false) { //la condición es si ya están limpias todas aquellas celdas que no tienen bomba
             System.out.println("Congrats! You won the game.");
             this.finishGame();
         }
