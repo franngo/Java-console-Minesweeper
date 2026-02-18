@@ -12,7 +12,7 @@ public class ConsoleBoard {
 
     public void startGame() {
         System.out.println("Welcome to Minesweeper! You can use the commands clear, flag, and unflag. Next to" +
-                "one of these commands, you must enter the row and the column number. For example: clear 5-7");
+                " one of these commands, you must enter the row and the column number. For example: clear 5-7");
         while(board.getIsActive()) {
             //mostrar en pantalla el tablero
             board.showBoardOnConsole();
