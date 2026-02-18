@@ -52,12 +52,12 @@ public class Board {
         return cells[row][column];
     }
 
-    public void mark(int row, int column) {
-        this.get(row, column).mark();
+    public void flag(int row, int column) {
+        this.get(row, column).flag();
     }
 
-    public void undoTheMark(int row, int column) {
-        this.get(row, column).undoTheMark();
+    public void unflag(int row, int column) {
+        this.get(row, column).unflag();
     }
 
     public void clear(int row, int column) {
@@ -81,15 +81,15 @@ public class Board {
 
     public void showBoardOnConsole() {
         for (Cell[] row : cells) {
-            System.out.println("|");
             for (Cell cell : row) {
-                System.out.printf(cell.getSymbol() + "|");
+                System.out.printf("|" + cell.getSymbol());
             }
+            System.out.println("|");
         }
     }
 
     public void checkVictory() {
-        if(true) { //si ya están limpias todas aquellas celdas que no tienen bomba
+        if(true) { //la condición es si ya están limpias todas aquellas celdas que no tienen bomba
             System.out.println("Congrats! You won the game.");
             this.finishGame();
         }

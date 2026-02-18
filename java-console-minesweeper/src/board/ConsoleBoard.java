@@ -11,6 +11,7 @@ public class ConsoleBoard {
     }
 
     public void startGame() {
+        System.out.println("");
         while(board.getIsActive()) {
             //mostrar en pantalla el tablero
             board.showBoardOnConsole();

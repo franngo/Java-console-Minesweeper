@@ -6,13 +6,13 @@ import board.Cell;
 import java.util.List;
 
 public class CellStateUnknown implements CellState {
-    public void mark(Cell cell) {
-        cell.setState(new CellStateMarked());
+    public void flag(Cell cell) {
+        cell.setState(new CellStateFlagged());
         cell.setSymbol('F');
     }
 
-    public void undoTheMark(Cell cell) {
-        System.out.println("This cell is not marked. you can't undo a mark if there's none.");
+    public void unflag(Cell cell) {
+        System.out.println("This cell is not flagged. you can't unflag if there's no flag in the cell.");
     }
 
     /*

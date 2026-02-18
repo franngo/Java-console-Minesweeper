@@ -32,12 +32,12 @@ public class Cell {
         this.state = state;
     }
 
-    public void mark() {
-        state.mark(this);
+    public void flag() {
+        state.flag(this);
     }
 
-    public void undoTheMark() {
-        state.undoTheMark(this);
+    public void unflag() {
+        state.unflag(this);
     }
 
     public void clear(Board board, List<Cell> cells) {

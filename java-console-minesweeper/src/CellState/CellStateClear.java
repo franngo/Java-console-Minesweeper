@@ -6,11 +6,11 @@ import board.Cell;
 import java.util.List;
 
 public class CellStateClear implements CellState {
-    public void mark(Cell cell) {
+    public void flag(Cell cell) {
         System.out.println("This cell is already clear.");
     }
 
-    public void undoTheMark(Cell cell) {
+    public void unflag(Cell cell) {
         System.out.println("This cell is already clear.");
     }
 
