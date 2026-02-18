@@ -14,13 +14,10 @@ public class ConsoleBoard {
         System.out.println("Welcome to Minesweeper! You can use the commands clear, flag, and unflag. Next to" +
                 " one of these commands, you must enter the row and the column number. For example: clear 5-7");
         while(board.getIsActive()) {
-            //mostrar en pantalla el tablero
             board.showBoardOnConsole();
-            //recibir input
             String input = scanner.nextLine();
-            //delegar mensaje al Board según la acción del input
             this.processInput(input);
-            //si se cambia isActive del Board, en el próximo giro termina el loop y termina la partida
+            //if isActive has changed, the loop and the game will finish in the next condition check.
         }
     }
 
@@ -34,6 +31,7 @@ public class ConsoleBoard {
             return;
         }
 
+        //Second part of an input must have the row-column format
         if (!parts[1].matches("\\d-\\d")) {
             System.out.println("Invalid input format. Use row-column next to the command (For example: 3-4)");
             return;
@@ -43,6 +41,7 @@ public class ConsoleBoard {
         int row = Integer.parseInt(coords[0]);
         int column = Integer.parseInt(coords[1]);
 
+        //The row number can't be 8 or 9, since there are no 8th nor 9th row.
         if (row==8 || row==9) {
             System.out.println("Invalid input. Rows only go from 0 to 7.");
             return;

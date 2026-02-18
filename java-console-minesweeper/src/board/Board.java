@@ -90,6 +90,7 @@ public class Board {
     }
 
     public void showBoardOnConsole() {
+        System.out.println();
         for (Cell[] row : cells) {
             for (Cell cell : row) {
                 System.out.printf("|" + cell.getSymbol());
