@@ -2,11 +2,12 @@ package board;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Board {
     final private int rows = 8;
     final private int columns = 10;
-    private Cell[][] cells; //must have 10 cells with a bomb
+    final private Cell[][] cells; //must have 10 cells with a bomb
     private boolean isActive = true;
 
     public Board() {
@@ -76,6 +77,15 @@ public class Board {
         }
 
         this.get(row, column).clear(this, cs);
+    }
+
+    public void showBoardOnConsole() {
+        for (Cell[] row : cells) {
+            System.out.println("|");
+            for (Cell cell : row) {
+                System.out.printf(cell.getSymbol() + "|");
+            }
+        }
     }
 
     public void checkVictory() {

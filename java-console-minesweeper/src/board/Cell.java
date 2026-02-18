@@ -20,12 +20,16 @@ public class Cell {
         return this.hasBomb;
     }
 
-    public void setState(CellState state) {
-        this.state = state;
+    public char getSymbol() {
+        return this.symbol;
     }
 
     public void setSymbol(char symbol) {
         this.symbol = symbol;
+    }
+
+    public void setState(CellState state) {
+        this.state = state;
     }
 
     public void mark() {
