@@ -12,7 +12,7 @@ public class CellStateUnknown implements CellState {
     }
 
     public void undoTheMark(Cell cell) {
-        //show "This cell is not marked. you can't undo a mark if there's none" to the player
+        System.out.println("This cell is not marked. you can't undo a mark if there's none.");
     }
 
     /*

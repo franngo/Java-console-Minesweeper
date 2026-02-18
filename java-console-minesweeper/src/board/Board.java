@@ -79,7 +79,7 @@ public class Board {
     }
 
     public void checkVictory() {
-        if(true) {
+        if(true) { //si ya están limpias todas aquellas celdas que no tienen bomba
             System.out.println("Congrats! You won the game.");
             this.finishGame();
         }
