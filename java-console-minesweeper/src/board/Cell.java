@@ -20,20 +20,24 @@ public class Cell {
         return this.hasBomb;
     }
 
-    public void setState(CellState state) {
-        this.state = state;
+    public char getSymbol() {
+        return this.symbol;
     }
 
     public void setSymbol(char symbol) {
         this.symbol = symbol;
     }
 
-    public void mark() {
-        state.mark(this);
+    public void setState(CellState state) {
+        this.state = state;
     }
 
-    public void undoTheMark() {
-        state.undoTheMark(this);
+    public void flag() {
+        state.flag(this);
+    }
+
+    public void unflag() {
+        state.unflag(this);
     }
 
     public void clear(Board board, List<Cell> cells) {
