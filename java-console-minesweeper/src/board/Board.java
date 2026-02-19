@@ -2,7 +2,6 @@ package board;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Board {
     final private int rows = 8;
@@ -21,16 +20,6 @@ public class Board {
         cells[1][1] = new Cell(false);
         cells[2][0] = new Cell(false);
         cells[2][1] = new Cell(true);
-
-        /*
-        for (Cell[] row : cells) {
-            for (Cell cell : row) {
-                if(cell==null) {
-                    cell = new Cell(false); //must randomize 10 cells with bomb
-                }
-            }
-        }
-        */
 
         for(int r=0; r<8; r++) {
             for(int c=0; c<10; c++) {
@@ -100,9 +89,20 @@ public class Board {
     }
 
     public void checkVictory() {
-        if(false) { //la condición es si ya están limpias todas aquellas celdas que no tienen bomba
+        if(this.hasNoCellsToBeCleared()) { //if all cells with no bomb are clear
             System.out.println("Congrats! You won the game.");
             this.finishGame();
         }
+    }
+
+    private boolean hasNoCellsToBeCleared() {
+        for (Cell[] row : cells) {
+            for (Cell cell : row) {
+                if(!cell.hasBombOrClear()) { //if has no bomb but it's flagged or unknown
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }

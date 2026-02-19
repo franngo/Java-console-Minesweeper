@@ -1,4 +1,4 @@
-package CellState;
+package cellState;
 
 import board.Board;
 import board.Cell;

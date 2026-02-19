@@ -1,7 +1,6 @@
 package board;
 
-import CellState.CellState;
-import CellState.CellStateUnknown;
+import cellState.*;
 
 import java.util.List;
 
@@ -42,6 +41,10 @@ public class Cell {
 
     public void clear(Board board, List<Cell> cells) {
         state.clear(board, this, cells);
+    }
+
+    public boolean hasBombOrClear() {
+        return this.hasBomb() || this.state instanceof CellStateClear;
     }
 
 }
