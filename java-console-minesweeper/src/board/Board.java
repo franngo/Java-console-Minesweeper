@@ -20,14 +20,13 @@ public class Board {
         cells[1][0] = new Cell(false);
         cells[1][1] = new Cell(false);
         cells[2][0] = new Cell(false);
-        //cells[2][1] = new Cell(true);
 
         //we also initialize 10 random cells with a bomb
         int i = 0;
         Random rand = new Random();
         while(i<10) {
-            int rw = rand.nextInt(8);;
-            int cl = rand.nextInt(10);;
+            int rw = rand.nextInt(8);
+            int cl = rand.nextInt(10);
             if(this.get(rw,cl)==null) { //if not one of the already initialized
                 cells[rw][cl] = new Cell(true); //must randomize 10 cells with bomb
                 i++;
@@ -94,9 +93,13 @@ public class Board {
 
     public void showBoardOnConsole() {
         System.out.println();
-        for (Cell[] row : cells) {
-            for (Cell cell : row) {
-                System.out.printf("|" + cell.getSymbol());
+        System.out.println("      0 1 2 3 4 5 6 7 8 9");
+        System.out.println();
+        for(int r=0; r<8; r++) {
+            System.out.printf(r + "    ");
+            for(int c=0; c<10; c++) {
+                Cell current = this.get(r,c);
+                System.out.printf("|" + current.getSymbol());
             }
             System.out.println("|");
         }

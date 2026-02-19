@@ -3,7 +3,7 @@ package board;
 import java.util.Scanner;
 
 public class ConsoleBoard {
-    private Board board;
+    private final Board board;
     private final Scanner scanner = new Scanner(System.in);
 
     public ConsoleBoard() {
