@@ -2,6 +2,7 @@ package board;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Board {
     final private int rows = 8;
@@ -12,24 +13,37 @@ public class Board {
     public Board() {
         cells = new Cell[rows][columns]; //8 rows and 10 columns board
 
-        //we initialize some corner cells
+        //we initialize some corner cells with no bomb
         cells[0][0] = new Cell(false);
         cells[0][1] = new Cell(false);
         cells[0][2] = new Cell(false);
         cells[1][0] = new Cell(false);
         cells[1][1] = new Cell(false);
         cells[2][0] = new Cell(false);
-        cells[2][1] = new Cell(true);
+        //cells[2][1] = new Cell(true);
 
+        //we also initialize 10 random cells with a bomb
+        int i = 0;
+        Random rand = new Random();
+        while(i<10) {
+            int rw = rand.nextInt(8);;
+            int cl = rand.nextInt(10);;
+            if(this.get(rw,cl)==null) { //if not one of the already initialized
+                cells[rw][cl] = new Cell(true); //must randomize 10 cells with bomb
+                i++;
+            }
+        }
+
+        //we initialize the rest of the cells with no bomb
         for(int r=0; r<8; r++) {
             for(int c=0; c<10; c++) {
                 if(this.get(r,c)==null) { //if not one of the already initialized
-                    cells[r][c] = new Cell(false); //must randomize 10 cells with bomb
+                    cells[r][c] = new Cell(false);
                 }
             }
         }
 
-        //we clear the initial cells
+        //we clear the initial corner cells with no bomb
         this.clear(0, 0);
         this.clear(0, 1);
         this.clear(0, 2);
