@@ -58,15 +58,16 @@ public class BoardTest {
     @Test
     public void get() {
         Cell[][] cells = board.getCells();
+
         assertEquals(cells[3][5], board.get(3,5));
     }
 
     @Test
     public void flag() {
         Cell[][] cells = board.getCells();
-
         Cell cell = mock(Cell.class);
         cells[4][8] = cell;
+
         board.flag(4, 8);
         verify(cell).flag();
     }
@@ -74,9 +75,9 @@ public class BoardTest {
     @Test
     public void unflag() {
         Cell[][] cells = board.getCells();
-
         Cell cell = mock(Cell.class);
         cells[4][8] = cell;
+
         board.unflag(4, 8);
         verify(cell).unflag();
     }
@@ -84,11 +85,49 @@ public class BoardTest {
     @Test
     public void clear() {
         Cell[][] cells = board.getCells();
-
         Cell cell = mock(Cell.class);
         cells[4][8] = cell;
+
         board.clear(4, 8);
         verify(cell).clear(eq(board), any());
+    }
+
+    @Test
+    public void showBoardOnConsole() {
+        Cell[][] cells = board.getCells();
+        for(int r=0; r<8; r++) {
+            for(int c=0; c<10; c++) {
+                cells[r][c] = mock(Cell.class);
+            }
+        }
+
+        board.showBoardOnConsole();
+        for (Cell[] row : board.getCells()) {
+            for (Cell cell : row) {
+                verify(cell).getSymbol();
+            }
+        }
+
+    }
+
+    @Test
+    public void checkVictory() {
+        Cell[][] cells = board.getCells();
+        for(int r=0; r<8; r++) {
+            for(int c=0; c<10; c++) {
+                cells[r][c] = mock(Cell.class);
+                when(cells[r][c].hasBombOrClear()).thenReturn(true);
+            }
+        }
+
+        board.checkVictory();
+        for (Cell[] row : board.getCells()) {
+            for (Cell cell : row) {
+                verify(cell).hasBombOrClear();
+            }
+        }
+
+        assertFalse(board.getIsActive());
     }
 
 }
