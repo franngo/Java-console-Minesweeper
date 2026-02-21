@@ -4,10 +4,17 @@ import java.util.Scanner;
 
 public class ConsoleBoard {
     private final Board board;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
     public ConsoleBoard() {
         this.board = new Board();
+        this.scanner = new Scanner(System.in);
+    }
+
+    //para test
+    public ConsoleBoard(Board board, Scanner scanner) {
+        this.board = board;
+        this.scanner = scanner;
     }
 
     public void startGame() {
@@ -28,13 +35,11 @@ public class ConsoleBoard {
         if (parts.length != 2) {
             System.out.println("Invalid input format. Inputs must have only 2 parts: command and row-column " +
                     "(For example: clear 6-2)");
-            return;
         }
 
         //Second part of an input must have the row-column format
         if (!parts[1].matches("\\d-\\d")) {
             System.out.println("Invalid input format. Use row-column next to the command (For example: 3-4)");
-            return;
         }
 
         String[] coords = parts[1].split("-");
@@ -44,7 +49,6 @@ public class ConsoleBoard {
         //The row number can't be 8 or 9, since there are no 8th nor 9th row.
         if (row==8 || row==9) {
             System.out.println("Invalid input. Rows only go from 0 to 7.");
-            return;
         }
 
         String command = parts[0];
