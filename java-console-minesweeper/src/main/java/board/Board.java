@@ -11,7 +11,11 @@ public class Board {
     private boolean isActive = true;
 
     public Board() {
-        cells = new Cell[rows][columns]; //8 rows and 10 columns board
+        this(8, 10); //8 rows and 10 columns board
+    }
+
+    public Board(int rs, int cs) {
+        this.cells = new Cell[rs][cs];
 
         //we initialize some corner cells with no bomb
         cells[0][0] = new Cell(false);
@@ -25,8 +29,8 @@ public class Board {
         int i = 0;
         Random rand = new Random();
         while(i<10) {
-            int rw = rand.nextInt(8);
-            int cl = rand.nextInt(10);
+            int rw = rand.nextInt(rs);
+            int cl = rand.nextInt(cs);
             if(this.get(rw,cl)==null) { //if not one of the already initialized
                 cells[rw][cl] = new Cell(true); //must randomize 10 cells with bomb
                 i++;
@@ -34,8 +38,8 @@ public class Board {
         }
 
         //we initialize the rest of the cells with no bomb
-        for(int r=0; r<8; r++) {
-            for(int c=0; c<10; c++) {
+        for(int r=0; r<rs; r++) {
+            for(int c=0; c<cs; c++) {
                 if(this.get(r,c)==null) { //if not one of the already initialized
                     cells[r][c] = new Cell(false);
                 }
