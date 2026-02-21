@@ -126,4 +126,9 @@ public class Board {
         }
         return true;
     }
+
+    //for testing
+    Cell[][] getCells() {
+        return this.cells;
+    }
 }
