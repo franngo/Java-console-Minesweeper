@@ -5,17 +5,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Board {
-    final private int rows = 8;
-    final private int columns = 10;
+    final private int rows;
+    final private int columns;
     final private Cell[][] cells; //must have 10 cells with a bomb
-    private boolean isActive = true;
+    private boolean isActive;
 
     public Board() {
         this(8, 10); //8 rows and 10 columns board
     }
 
     public Board(int rs, int cs) {
-        this.cells = new Cell[rs][cs];
+        this.rows = rs;
+        this.columns = cs;
+        this.cells = new Cell[rows][columns];
+        this.isActive = true;
 
         //we initialize some corner cells with no bomb
         cells[0][0] = new Cell(false);
