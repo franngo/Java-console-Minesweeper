@@ -4,10 +4,17 @@ import java.util.Scanner;
 
 public class ConsoleBoard {
     private final Board board;
-    private final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
 
     public ConsoleBoard() {
         this.board = new Board();
+        this.scanner = new Scanner(System.in);
+    }
+
+    //para test
+    public ConsoleBoard(Board board, Scanner scanner) {
+        this.board = board;
+        this.scanner = scanner;
     }
 
     public void startGame() {

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Java-console-Minesweeper.iml" filepath="$PROJECT_DIR$/.idea/Java-console-Minesweeper.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-console-minesweeper/java-console-minesweeper.iml" filepath="$PROJECT_DIR$/java-console-minesweeper/java-console-minesweeper.iml" />
     </modules>
   </component>
 </project>
