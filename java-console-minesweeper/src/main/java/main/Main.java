@@ -1,3 +1,5 @@
+package main;
+
 import board.*;
 
 public class Main {

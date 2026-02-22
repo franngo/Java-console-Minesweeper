@@ -1,0 +1,6 @@
+board/ConsoleBoardTest.class
+cellState/CellStateClearTest.class
+board/CellTest.class
+cellState/CellStateUnknownTest.class
+cellState/CellStateFlaggedTest.class
+board/BoardTest.class
